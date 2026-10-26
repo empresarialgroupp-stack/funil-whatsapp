@@ -4,7 +4,7 @@
 //
 //  Tipos de mensagem:
 //    { texto: "..." }
-//    { imagem: "media/x.svg", legenda: "..." }          (legenda opcional)
+//    { imagem: "media/x.jpg", legenda: "..." }          (legenda opcional)
 //    { video: "media/x.mp4", legenda: "...", obrigatorio: true }
 //    { audio: "media/x.m4a", obrigatorio: false }
 //  obrigatorio: true = o lead precisa assistir até o fim para liberar as opções.
