@@ -16,7 +16,7 @@
 window.FUNIL = {
   perfil: {
     nome: "Seu Nome",
-    foto: "media/perfil.svg",
+    foto: "media/perfil.jpg",
   },
 
   contato: {
