@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0f5c47">
+  <title>Painel do funil</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <section id="tela-login" class="login" hidden>
+    <form id="form-login" class="login-caixa">
+      <h1>Painel do funil</h1>
+      <p>Digite a senha para editar.</p>
+      <input id="senha" type="password" placeholder="Senha" autocomplete="current-password" required>
+      <button class="btn primario" type="submit">Entrar</button>
+      <small id="erro-login" class="erro"></small>
+    </form>
+  </section>
+
+  <section id="tela-painel" hidden>
+    <header class="topo">
+      <strong>Painel do funil</strong>
+      <nav class="abas">
+        <button class="aba ativa" data-aba="funil" type="button">Funil</button>
+        <button class="aba" data-aba="numeros" type="button">Números</button>
+      </nav>
+      <a class="ver-site" href="/" target="_blank" rel="noopener">Ver site ↗</a>
+    </header>
+
+    <main id="aba-funil" class="conteudo"></main>
+    <main id="aba-numeros" class="conteudo" hidden></main>
+
+    <footer id="barra-publicar" class="barra">
+      <span id="estado">Tudo publicado</span>
+      <button id="publicar" class="btn primario" type="button" disabled>Publicar alterações</button>
+    </footer>
+  </section>
+
+  <div id="aviso" class="aviso" hidden></div>
+
+  <script src="/roteiro.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

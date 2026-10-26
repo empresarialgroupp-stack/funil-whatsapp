@@ -1,5 +1,4 @@
-(() => {
-  const F = window.FUNIL;
+function iniciar(F) {
   const $ = (s) => document.querySelector(s);
   const chat = $("#chat"), painel = $("#painel"), opcoesEl = $("#opcoes"), dica = $("#dica span");
   const voltarBtn = $("#voltar"), barra = $("#progresso-barra"), statusEl = $("#status");
@@ -34,14 +33,19 @@
   const rodapeMsg = (enviada) => `<span class="meta">${hora()}${enviada ? ICON.check : ""}</span>`;
   const rolar = () => requestAnimationFrame(() => (chat.scrollTop = chat.scrollHeight));
 
+  const etapasRegistradas = new Set(); // conta cada etapa uma vez por visita
   function rastrear(evento, dados = {}) {
-    const payload = { evento, origem, ...dados };
+    const atual = historico[historico.length - 1];
+    const payload = { evento, origem, etapa: atual && atual.id, ...dados };
+    if (evento === "etapa") {
+      if (etapasRegistradas.has(payload.etapa)) return;
+      etapasRegistradas.add(payload.etapa);
+    }
     try { window.va && window.va("event", { name: evento, data: payload }); } catch {}
     try { window.fbq && window.fbq("trackCustom", evento, payload); } catch {}
     try { window.ttq && window.ttq.track(evento, payload); } catch {}
-    if (F.rastreamento && F.rastreamento.endpoint && navigator.sendBeacon) {
-      navigator.sendBeacon(F.rastreamento.endpoint, JSON.stringify({ ...payload, ts: Date.now() }));
-    }
+    const endpoint = (F.rastreamento && F.rastreamento.endpoint) || "/api/evento";
+    try { navigator.sendBeacon && navigator.sendBeacon(endpoint, JSON.stringify(payload)); } catch {}
   }
 
   function pausarOutras(atual) {
@@ -303,4 +307,10 @@
   $("#avatar").src = F.perfil.foto;
   rastrear("acesso");
   setTimeout(() => executarEtapa(ordem[0]), 500);
-})();
+}
+
+// Usa o roteiro salvo pelo painel (/admin); sem ele, cai no roteiro.js do repositório.
+fetch("/api/config")
+  .then((r) => (r.ok ? r.json() : null))
+  .catch(() => null)
+  .then((config) => iniciar(config || window.FUNIL));
