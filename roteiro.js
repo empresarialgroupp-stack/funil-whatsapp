@@ -15,7 +15,7 @@
 window.FUNIL = {
   perfil: {
     nome: "Seu Nome",
-    foto: "media/perfil.jpg",
+    foto: "media/perfil.webp",
   },
 
   // Sem WhatsApp no final: o lead vai direto para o pagamento.
@@ -27,7 +27,7 @@ window.FUNIL = {
     boas_vindas: {
       mensagens: [
         { texto: "Oi! Sou o {nome} 👋 Essa é minha conversa automatizada pra te mostrar como começar e te liberar meu treinamento gratuito." },
-        { imagem: "media/vendas-ao-vivo.jpg", legenda: "Aqui vou te mostrar o caminho que trilhei pra vender + R$ 1k por dia no Mercado Livre sem ter estoque" },
+        { imagem: "media/vendas-ao-vivo.webp", legenda: "Aqui vou te mostrar o caminho que trilhei pra vender + R$ 1k por dia no Mercado Livre sem ter estoque" },
         { texto: "Você está começando ou já vende pela internet?" },
       ],
       opcoes: [

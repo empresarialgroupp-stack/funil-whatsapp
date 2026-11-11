@@ -179,10 +179,21 @@ function iniciar(F) {
     barra.style.width = `${((i + 1) / ordem.length) * 100}%`;
   }
 
+  // Baixa as imagens da etapa e das etapas seguintes enquanto o "digitando..." roda
+  const preCarregadas = new Set();
+  function preCarregar(id, profundidade = 1) {
+    const etapa = F.etapas[id];
+    if (!etapa) return;
+    const urls = etapa.mensagens.map((m) => m.imagem).concat((etapa.opcoes || []).map((o) => o.imagem));
+    for (const u of urls) if (u && !preCarregadas.has(u)) { preCarregadas.add(u); new Image().src = u; }
+    if (profundidade > 0) (etapa.opcoes || []).forEach((o) => preCarregar(o.proxima, profundidade - 1));
+  }
+
   async function executarEtapa(id) {
     const minhaExecucao = ++execucao;
     const etapa = F.etapas[id];
     if (!etapa) return console.error(`Etapa "${id}" não existe no roteiro.js`);
+    preCarregar(id);
     const registro = { id, nodes: [], resposta: null };
     historico.push(registro);
     atualizarProgresso(id);
