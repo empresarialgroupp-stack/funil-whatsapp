@@ -9,8 +9,7 @@
 //    { audio: "media/x.m4a", obrigatorio: false }
 //  obrigatorio: true = o lead precisa assistir até o fim para liberar as opções.
 //
-//  Cada etapa termina com "opcoes" (botões) ou com "final" (CTA + contato).
-//  Marcado com TODO = texto que não deu para ler nos prints.
+//  Cada etapa termina com "opcoes" (botões) ou com "final" (botão de pagamento).
 // =====================================================================
 
 window.FUNIL = {
@@ -19,32 +18,38 @@ window.FUNIL = {
     foto: "media/perfil.jpg",
   },
 
-  contato: {
-    whatsapp: "5581999999999",        // só números, com 55 + DDD
-    exibicao: "(81) 99999-9999",
-  },
+  // Sem WhatsApp no final: o lead vai direto para o pagamento.
+  contato: { whatsapp: "", exibicao: "" },
 
-  // Opcional: URL que recebe os eventos (etapa/clique) via POST. Vazio = desligado.
   rastreamento: { endpoint: "" },
 
   etapas: {
     boas_vindas: {
       mensagens: [
-        { texto: "Oi! Sou o {nome} 👋 Essa é minha conversa automatizada pra te mandar meu curso gratuito." },
+        { texto: "Oi! Sou o {nome} 👋 Essa é minha conversa automatizada pra te mostrar como começar e te liberar meu treinamento gratuito." },
         { imagem: "media/vendas-ao-vivo.jpg", legenda: "Aqui vou te mostrar o caminho que trilhei pra vender + R$ 1k por dia no Mercado Livre sem ter estoque" },
         { texto: "Você está começando ou já vende pela internet?" },
       ],
       opcoes: [
         { texto: "Estou começando", imagem: "media/opcoes/comecando.svg", proxima: "estrutura" },
-        // TODO: a ramificação de quem já vende não aparece nos prints — por enquanto segue o mesmo caminho
-        { texto: "Já vendo pela internet", imagem: "media/opcoes/ja-vendo.svg", proxima: "estrutura" },
+        { texto: "Já vendo pela internet", imagem: "media/opcoes/ja-vendo.svg", proxima: "ja_vende" },
+      ],
+    },
+
+    ja_vende: {
+      mensagens: [
+        { texto: "Show! Então você já sabe como funciona vender online." },
+        { texto: "O que eu vou te mostrar é como vender no Mercado Livre sem estoque, com um fornecedor integrado. Dá pra rodar junto com o que você já faz." },
+      ],
+      opcoes: [
+        { texto: "Quero ver como funciona", imagem: "media/opcoes/entender.svg", proxima: "fornecedor" },
       ],
     },
 
     estrutura: {
       mensagens: [
-        { texto: "Estou enviando meu curso pra quem tem compromisso de aplicar e já tem a estrutura para começar, incluindo acesso aos fornecedores." },
-        { texto: "Se você ainda não tem essa estrutura, primeiro vou mostrar o que precisa organizar." },
+        { texto: "Meu treinamento é gratuito, mas é pra quem tem compromisso de aplicar e já tem a estrutura pra começar, incluindo o fornecedor." },
+        { texto: "Se você ainda não tem essa estrutura, eu te mostro agora o que precisa." },
       ],
       opcoes: [
         { texto: "Quero entender como funciona", imagem: "media/opcoes/entender.svg", proxima: "fornecedor" },
@@ -53,10 +58,10 @@ window.FUNIL = {
 
     fornecedor: {
       mensagens: [
-        { texto: "Fornecedor é a empresa que mantém os produtos e faz o envio dos produtos quando você vende." },
+        { texto: "Fornecedor é a empresa que mantém os produtos em estoque e faz o envio quando você vende." },
         { texto: "A plataforma liga sua conta do Mercado Livre ao fornecedor. O acesso à plataforma é pago." },
         { video: "media/video-1.mp4", obrigatorio: true },
-        { texto: "Se ainda não tem uma conta de vendedor no Mercado Livre, dá pra criar de graça e só com o CPF para começar a vender." },
+        { texto: "Se ainda não tem uma conta de vendedor no Mercado Livre, dá pra criar de graça, só com o CPF." },
       ],
       opcoes: [
         { texto: "Entendi, continuar", imagem: "media/opcoes/continuar.svg", proxima: "produtos" },
@@ -67,7 +72,7 @@ window.FUNIL = {
       mensagens: [
         { video: "media/video-2.mp4", obrigatorio: true },
         { texto: "Você escolhe os produtos do fornecedor que quer vender. A integração ajuda a criar seus anúncios." },
-        { texto: "O próprio Mercado Livre faz a divulgação gratuita pelo marketplace, sem a necessidade de pagar por anúncios." },
+        { texto: "O próprio Mercado Livre divulga seus produtos no marketplace, sem você precisar pagar por anúncios." },
       ],
       opcoes: [
         { texto: "Como defino o preço dos produtos?", imagem: "media/opcoes/preco.svg", proxima: "preco" },
@@ -77,7 +82,7 @@ window.FUNIL = {
     preco: {
       mensagens: [
         { texto: "Você define o percentual que quer acrescentar sobre o custo do produto." },
-        { texto: "Exemplo... um produto de R$ 100 com acréscimo de 30% fica a R$ 130. Os R$ 30 de diferença ainda não são lucro, é preciso descontar taxas e demais custos." },
+        { texto: "Exemplo... um produto de R$ 100 com acréscimo de 30% fica a R$ 130. Os R$ 30 de diferença ainda não são lucro: é preciso descontar taxas e demais custos." },
       ],
       opcoes: [
         { texto: "E quando vender?", imagem: "media/opcoes/quando-vender.svg", proxima: "venda" },
@@ -86,7 +91,7 @@ window.FUNIL = {
 
     venda: {
       mensagens: [
-        { texto: "Quando você vende, o próprio fornecedor separa o pedido e faz o envio ao cliente. Você acompanha toda a venda, enquanto o fornecedor toma conta de toda logística." },
+        { texto: "Quando você vende, o próprio fornecedor separa o pedido e envia ao cliente. Você acompanha a venda e o fornecedor cuida de toda a logística." },
       ],
       opcoes: [
         { texto: "E como você me ajuda?", imagem: "media/opcoes/como-ajuda.svg", proxima: "ajuda" },
@@ -95,9 +100,8 @@ window.FUNIL = {
 
     ajuda: {
       mensagens: [
-        { texto: "Eu tenho um projeto gratuito onde eu ajudo quem quer começar a criar sua loja, integrar fornecedores, mando meu curso gratuito e dou acompanhamento durante 21 dias." },
-        { texto: "A meta é buscar 20 mil de faturamento nesse período com você aplicando as estratégias que vou passar." },
-        { texto: "Lógico que não faço isso por ser bonzinho, a única coisa que eu recebo em troca pela ajuda é você só me passar 5% do lucro que eu te ajudar a fazer durante os 21 dias de projeto." },
+        { texto: "Eu tenho um treinamento gratuito onde te ensino a montar sua loja, integrar o fornecedor e aplicar as estratégias de venda que eu uso." },
+        { texto: "Pra participar, a única coisa que você precisa é o acesso ao fornecedor. É a mesma plataforma que eu uso, e sem ela não tem como aplicar o que eu ensino." },
         { audio: "media/audio-1.mp3" },
       ],
       opcoes: [
@@ -107,31 +111,28 @@ window.FUNIL = {
 
     provas: {
       mensagens: [
-        { texto: "TODO: mensagem curta de resposta (ilegível no print)" },
-        { texto: "TODO: mensagem que apresenta os resultados de alunos (ilegível no print)" },
-        { imagem: "media/prova-1.svg" },
+        { texto: "Bora! Antes, olha o resultado de quem já está aplicando 👇" },
+        { video: "media/prova-1.mp4" },
         { imagem: "media/prova-2.svg" },
         { imagem: "media/prova-3.svg" },
-        { texto: "TODO: mensagens após os prints de resultado (ilegíveis no print)" },
-        { texto: "TODO: pergunta sobre os acessos — ex.: Você já tem conta no Mercado Livre e acesso a fornecedores?" },
+        { texto: "Todos começaram do mesmo jeito: com o fornecedor certo e seguindo o passo a passo." },
+        { texto: "Você já tem acesso a algum fornecedor?" },
       ],
       opcoes: [
-        { texto: "Já tenho todos, incluindo fornecedores", imagem: "media/opcoes/ja-tenho.svg", proxima: "fim" },
-        // TODO: confirmar se existe essa opção no funil original
         { texto: "Ainda não tenho", imagem: "media/opcoes/ainda-nao.svg", proxima: "fim" },
+        { texto: "Já tenho um fornecedor", imagem: "media/opcoes/ja-tenho.svg", proxima: "fim" },
       ],
     },
 
     fim: {
       mensagens: [
-        { texto: "Vou te enviar o fornecedor que eu uso, é mais confiável já que uso ele faz tempo e a chance de eu te ajudar a ter resultados com ele é maior." },
-        { texto: "Já que é o mesmo que eu uso para aplicar as estratégias de vendas." },
+        { texto: "Vou te passar o fornecedor que eu uso. É o mesmo das estratégias que eu ensino no treinamento, então a chance de você ter resultado é maior." },
+        { texto: "Funciona assim:\n1️⃣ Você garante seu acesso ao fornecedor no botão abaixo.\n2️⃣ Assim que o pagamento for confirmado, você recebe o link do meu treinamento gratuito." },
       ],
       final: {
-        botao: "Acessar fornecedor",
-        link: "https://SEU-LINK-AQUI",
-        textoContato: "Cadastrou o fornecedor? Me chame para começar e receber o curso gratuito.",
-        aviso: "Copie ou tire um print. Chame só após o cadastro.",
+        botao: "Garantir meu acesso ao fornecedor",
+        link: "https://SEU-LINK-DE-PAGAMENTO",
+        aviso: "Pagamento seguro. O link do treinamento gratuito chega logo após a confirmação.",
       },
     },
   },

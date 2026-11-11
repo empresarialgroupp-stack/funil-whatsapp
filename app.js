@@ -263,16 +263,18 @@ function iniciar(F) {
     opcoesEl.innerHTML = "";
     dica.parentElement.hidden = true;
     voltarBtn.hidden = historico.length < 2;
+    // Com textoContato mostra a caixa do WhatsApp; sem ele, só o botão (ex.: link de pagamento)
+    const comContato = Boolean(f.textoContato && F.contato && F.contato.exibicao);
     const bloco = el("div", "", `
       <a class="cta" href="${f.link}" target="_blank" rel="noopener">${escapar(f.botao)}</a>
-      <div class="contato">
+      ${comContato ? `<div class="contato">
         <p>${escapar(f.textoContato)}</p>
         <div class="fone"><strong>${escapar(F.contato.exibicao)}</strong><button type="button">Copiar</button></div>
-        <small>${escapar(f.aviso)}</small>
-      </div>`);
+        <small>${escapar(f.aviso || "")}</small>
+      </div>` : f.aviso ? `<p class="aviso-final">${escapar(f.aviso)}</p>` : ""}`);
     bloco.querySelector(".cta").addEventListener("click", () => rastrear("cta", { link: f.link }));
     const copiar = bloco.querySelector(".fone button");
-    copiar.addEventListener("click", async () => {
+    if (copiar) copiar.addEventListener("click", async () => {
       const numero = F.contato.exibicao;
       try { await navigator.clipboard.writeText(numero); }
       catch {
