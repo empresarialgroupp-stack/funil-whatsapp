@@ -131,7 +131,7 @@ window.FUNIL = {
       ],
       final: {
         botao: "Garantir meu acesso ao fornecedor",
-        link: "https://SEU-LINK-DE-PAGAMENTO",
+        link: "https://logisfy.site/plus",
         aviso: "Pagamento seguro. O link do treinamento gratuito chega logo após a confirmação.",
       },
     },
