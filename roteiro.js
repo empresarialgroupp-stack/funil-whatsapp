@@ -129,12 +129,20 @@ window.FUNIL = {
     fim: {
       mensagens: [
         { texto: "Vou te enviar os fornecedores então, sem ele não tem como cadastrar nem enviar os produtos pros clientes. É só se cadastrar e me chamar no WhatsApp que eu vou te enviar o curso gratuito." },
+        { texto: "⚠️ Importante: depois de pegar o fornecedor, volta aqui nessa conversa e aperta o botão verde \"Já peguei o fornecedor, chamar no WhatsApp\" aqui embaixo. É por ele que eu te envio o curso gratuito." },
+      ],
+      // Mostrado para quem já chegou ao final e abre o link de novo
+      retorno: [
+        "Que bom que você voltou! 🙌",
+        "Já pegou o fornecedor? Então aperta o botão verde aqui embaixo e me chama no WhatsApp que eu te envio o curso gratuito.",
       ],
       final: {
         botao: "Acessar fornecedor",
         link: "https://logisfy.site/plus",
-        textoContato: "Cadastrou o fornecedor? Me chame para começar e receber o curso gratuito.",
-        aviso: "Copie ou tire um print. Chame só após o cadastro.",
+        textoContato: "Já pegou o fornecedor? Volte aqui e me chame para começar e receber o curso gratuito.",
+        botaoWhatsapp: "Já peguei o fornecedor, chamar no WhatsApp",
+        mensagemWhatsapp: "Oi André! Já peguei o fornecedor e quero receber o curso gratuito.",
+        aviso: "Chame só depois de pegar o fornecedor.",
       },
     },
   },

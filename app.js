@@ -16,6 +16,7 @@ function iniciar(F) {
     check: '<svg viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6l3 3 6-7M6 9l1 1 6-8"/></svg>',
   };
   const VELOCIDADES = [1, 1.5, 2];
+  const CHAVE_FINAL = "funil-chegou-final";
 
   // ---------- utilidades ----------
   const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -280,10 +281,14 @@ function iniciar(F) {
       <a class="cta" href="${f.link}" target="_blank" rel="noopener">${escapar(f.botao)}</a>
       ${comContato ? `<div class="contato">
         <p>${escapar(f.textoContato)}</p>
+        ${F.contato.whatsapp ? `<a class="btn-whats" href="https://wa.me/${F.contato.whatsapp}?text=${encodeURIComponent(f.mensagemWhatsapp || "")}" target="_blank" rel="noopener">${escapar(f.botaoWhatsapp || "Já me cadastrei, chamar no WhatsApp")}</a>` : ""}
         <div class="fone"><strong>${escapar(F.contato.exibicao)}</strong><button type="button">Copiar</button></div>
         <small>${escapar(f.aviso || "")}</small>
       </div>` : f.aviso ? `<p class="aviso-final">${escapar(f.aviso)}</p>` : ""}`);
     bloco.querySelector(".cta").addEventListener("click", () => rastrear("cta", { link: f.link }));
+    const whats = bloco.querySelector(".btn-whats");
+    if (whats) whats.addEventListener("click", () => rastrear("whatsapp"));
+    try { localStorage.setItem(CHAVE_FINAL, "1"); } catch {}
     const copiar = bloco.querySelector(".fone button");
     if (copiar) copiar.addEventListener("click", async () => {
       const numero = F.contato.exibicao;
@@ -319,6 +324,26 @@ function iniciar(F) {
   $("#nome").textContent = F.perfil.nome;
   $("#avatar").src = F.perfil.foto;
   rastrear("acesso");
+
+  // Quem já chegou ao final e volta depois de pegar o fornecedor vai direto para o botão do WhatsApp
+  let voltou = false;
+  try { voltou = localStorage.getItem(CHAVE_FINAL) === "1"; } catch {}
+  const idFinal = ordem.find((id) => F.etapas[id].final);
+  if (voltou && idFinal && F.etapas[idFinal].retorno) {
+    historico.push({ id: idFinal, nodes: [], resposta: null });
+    atualizarProgresso(idFinal);
+    rastrear("retorno");
+    setTimeout(async () => {
+      for (const texto of F.etapas[idFinal].retorno) {
+        await digitar({ texto }, execucao);
+        chat.appendChild(msgTexto({ texto }));
+        rolar();
+        await esperar(300);
+      }
+      mostrarFinal(F.etapas[idFinal].final);
+    }, 400);
+    return;
+  }
   setTimeout(() => executarEtapa(ordem[0]), 500);
 }
 

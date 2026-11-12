@@ -148,6 +148,7 @@ button { font: inherit; cursor: pointer; }
 .fone { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 8px 8px 14px; background: #fff; border: 1px solid var(--borda); border-radius: 10px; }
 .fone strong { font-size: 18px; letter-spacing: .01em; }
 .fone button { border: 0; background: #e5f2ec; color: var(--verde-escuro); font-weight: 700; font-size: 13px; padding: 11px 16px; border-radius: 8px; }
+.btn-whats { display: block; text-align: center; text-decoration: none; background: #25d366; color: #fff; font-weight: 700; font-size: 15px; padding: 14px; border-radius: 10px; margin-bottom: 10px; }
 .aviso-final { margin: 12px 4px 0; text-align: center; font-size: 12.5px; color: #6b7a75; line-height: 1.45; }
 .contato small { display: block; margin-top: 10px; font-size: 11.5px; color: var(--suave); }
 
