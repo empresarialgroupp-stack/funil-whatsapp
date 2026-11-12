@@ -94,7 +94,7 @@ window.FUNIL = {
         { texto: "Quando você vende, o próprio fornecedor separa o pedido e envia ao cliente. Você acompanha a venda e o fornecedor cuida de toda a logística." },
       ],
       opcoes: [
-        { texto: "E como você me ajuda?", imagem: "media/opcoes/como-ajuda.svg", proxima: "ajuda" },
+        { texto: "E como você me ajuda?", imagem: "media/opcoes/como-ajuda.webp", proxima: "ajuda" },
       ],
     },
 
