@@ -85,7 +85,7 @@ window.FUNIL = {
         { texto: "Exemplo... um produto de R$ 100 com acréscimo de 30% fica a R$ 130. Os R$ 30 de diferença ainda não são lucro: é preciso descontar taxas e demais custos." },
       ],
       opcoes: [
-        { texto: "E quando vender?", imagem: "media/opcoes/quando-vender.svg", proxima: "venda" },
+        { texto: "E quando vender?", imagem: "media/opcoes/quando-vender.webp", proxima: "venda" },
       ],
     },
 
