@@ -42,7 +42,7 @@ window.FUNIL = {
         { texto: "O que eu vou te mostrar é como vender no Mercado Livre sem estoque, com um fornecedor integrado. Dá pra rodar junto com o que você já faz." },
       ],
       opcoes: [
-        { texto: "Quero ver como funciona", imagem: "media/opcoes/entender.svg", proxima: "fornecedor" },
+        { texto: "Quero ver como funciona", imagem: "media/opcoes/entender.webp", proxima: "fornecedor" },
       ],
     },
 
@@ -52,7 +52,7 @@ window.FUNIL = {
         { texto: "Se você ainda não tem essa estrutura, eu te mostro agora o que precisa." },
       ],
       opcoes: [
-        { texto: "Quero entender como funciona", imagem: "media/opcoes/entender.svg", proxima: "fornecedor" },
+        { texto: "Quero entender como funciona", imagem: "media/opcoes/entender.webp", proxima: "fornecedor" },
       ],
     },
 
