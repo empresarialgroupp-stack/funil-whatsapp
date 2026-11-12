@@ -119,8 +119,8 @@ window.FUNIL = {
         { texto: "Você já tem acesso a algum fornecedor?" },
       ],
       opcoes: [
-        { texto: "Ainda não tenho", imagem: "media/opcoes/ainda-nao.svg", proxima: "fim" },
-        { texto: "Já tenho um fornecedor", imagem: "media/opcoes/ja-tenho.svg", proxima: "fim" },
+        { texto: "Ainda não tenho os fornecedores", proxima: "fim" },
+        { texto: "Já tenho todos, incluindo fornecedores", proxima: "fim" },
       ],
     },
 
