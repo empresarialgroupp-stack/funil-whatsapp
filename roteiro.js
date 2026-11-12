@@ -75,7 +75,7 @@ window.FUNIL = {
         { texto: "O próprio Mercado Livre divulga seus produtos no marketplace, sem você precisar pagar por anúncios." },
       ],
       opcoes: [
-        { texto: "Como defino o preço dos produtos?", imagem: "media/opcoes/preco.svg", proxima: "preco" },
+        { texto: "Como defino o preço dos produtos?", imagem: "media/opcoes/preco.webp", proxima: "preco" },
       ],
     },
 
