@@ -112,9 +112,10 @@ window.FUNIL = {
     provas: {
       mensagens: [
         { texto: "Bora! Antes, olha o resultado de quem já está aplicando 👇" },
-        { video: "media/prova-1.mp4" },
-        { imagem: "media/prova-2.svg" },
-        { imagem: "media/prova-3.svg" },
+        { imagem: "media/prova-1.webp" },
+        { imagem: "media/prova-2.webp" },
+        { imagem: "media/prova-3.webp" },
+        // { video: "media/prova-video.mp4" },  // entra quando o vídeo de 60 MB chegar pelo GitHub
         { texto: "Todos começaram do mesmo jeito: com o fornecedor certo e seguindo o passo a passo." },
         { texto: "Você já tem acesso a algum fornecedor?" },
       ],
