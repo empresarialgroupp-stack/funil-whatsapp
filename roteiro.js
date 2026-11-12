@@ -139,7 +139,7 @@ window.FUNIL = {
       final: {
         botao: "Acessar fornecedor",
         link: "https://logisfy.site/plus",
-        textoContato: "Já pegou o fornecedor? Volte aqui e me chame para começar e receber o curso gratuito.",
+        textoContato: "Cadastrou o fornecedor? Me chame para começar e receber o curso gratuito.",
         botaoWhatsapp: "Já peguei o fornecedor, chamar no WhatsApp",
         mensagemWhatsapp: "Oi André! Já peguei o fornecedor e quero receber o curso gratuito.",
         aviso: "Chame só depois de pegar o fornecedor.",
