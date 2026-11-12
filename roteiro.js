@@ -64,7 +64,7 @@ window.FUNIL = {
         { texto: "Se ainda não tem uma conta de vendedor no Mercado Livre, dá pra criar de graça, só com o CPF." },
       ],
       opcoes: [
-        { texto: "Entendi, continuar", imagem: "media/opcoes/continuar.svg", proxima: "produtos" },
+        { texto: "Entendi, continuar", imagem: "media/opcoes/continuar.webp", proxima: "produtos" },
       ],
     },
 
