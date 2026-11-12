@@ -14,7 +14,7 @@
 
 window.FUNIL = {
   perfil: {
-    nome: "Seu Nome",
+    nome: "André",
     foto: "media/perfil.webp",
   },
 
@@ -31,8 +31,8 @@ window.FUNIL = {
         { texto: "Você está começando ou já vende pela internet?" },
       ],
       opcoes: [
-        { texto: "Estou começando", imagem: "media/opcoes/comecando.svg", proxima: "estrutura" },
-        { texto: "Já vendo pela internet", imagem: "media/opcoes/ja-vendo.svg", proxima: "ja_vende" },
+        { texto: "Estou começando", imagem: "media/opcoes/comecando.webp", proxima: "estrutura" },
+        { texto: "Já vendo pela internet", imagem: "media/opcoes/ja-vendo.webp", proxima: "ja_vende" },
       ],
     },
 
