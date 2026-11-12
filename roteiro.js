@@ -18,8 +18,10 @@ window.FUNIL = {
     foto: "media/perfil.webp",
   },
 
-  // Sem WhatsApp no final: o lead vai direto para o pagamento.
-  contato: { whatsapp: "", exibicao: "" },
+  contato: {
+    whatsapp: "5581995566767",
+    exibicao: "(81) 99556-6767",
+  },
 
   rastreamento: { endpoint: "" },
 
@@ -126,13 +128,13 @@ window.FUNIL = {
 
     fim: {
       mensagens: [
-        { texto: "Vou te passar o fornecedor que eu uso. É o mesmo das estratégias que eu ensino no treinamento, então a chance de você ter resultado é maior." },
-        { texto: "Funciona assim:\n1️⃣ Você garante seu acesso ao fornecedor no botão abaixo.\n2️⃣ Assim que o pagamento for confirmado, você recebe o link do meu treinamento gratuito." },
+        { texto: "Vou te enviar os fornecedores então, sem ele não tem como cadastrar nem enviar os produtos pros clientes. É só se cadastrar e me chamar no WhatsApp que eu vou te enviar o curso gratuito." },
       ],
       final: {
-        botao: "Garantir meu acesso ao fornecedor",
+        botao: "Acessar fornecedor",
         link: "https://logisfy.site/plus",
-        aviso: "Pagamento seguro. O link do treinamento gratuito chega logo após a confirmação.",
+        textoContato: "Cadastrou o fornecedor? Me chame para começar e receber o curso gratuito.",
+        aviso: "Copie ou tire um print. Chame só após o cadastro.",
       },
     },
   },
