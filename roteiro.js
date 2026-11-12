@@ -62,6 +62,7 @@ window.FUNIL = {
       mensagens: [
         { texto: "Fornecedor é a empresa que mantém os produtos em estoque e faz o envio quando você vende." },
         { texto: "A plataforma liga sua conta do Mercado Livre ao fornecedor. O acesso à plataforma é pago." },
+        { texto: "Meu parceiro vai te explicar como funciona por dentro da plataforma." },
         { video: "media/video-1.mp4", obrigatorio: true },
         { texto: "Se ainda não tem uma conta de vendedor no Mercado Livre, dá pra criar de graça, só com o CPF." },
       ],
