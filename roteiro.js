@@ -102,10 +102,10 @@ window.FUNIL = {
       mensagens: [
         { texto: "Eu tenho um treinamento gratuito onde te ensino a montar sua loja, integrar o fornecedor e aplicar as estratégias de venda que eu uso." },
         { texto: "Pra participar, a única coisa que você precisa é o acesso ao fornecedor. É a mesma plataforma que eu uso, e sem ela não tem como aplicar o que eu ensino." },
-        { audio: "media/audio-1.mp3" },
+        { audio: "media/audio-1.m4a" },
       ],
       opcoes: [
-        { texto: "Gostei, como eu começo?", imagem: "media/opcoes/como-comecar.svg", proxima: "provas" },
+        { texto: "Gostei, como eu começo?", imagem: "media/opcoes/como-comecar.webp", proxima: "provas" },
       ],
     },
 
